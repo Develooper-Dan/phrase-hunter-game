@@ -4,7 +4,7 @@
    constructor(song){
      this.song = song.toLowerCase();
    }
-// This function "converts" the string of the song to single HTML list elements for each letter and writes them into the song div
+// This method "converts" the string of the song to single HTML list elements for each letter and writes them into the song div
    addSongToDisplay(){
      const songDiv = document.querySelector("#song ul");
      let htmlString = "";
@@ -17,7 +17,9 @@
        }
      songDiv.innerHTML=htmlString;
    }
-// Called by the main game handler, this function checks if a clicked letter is part of the song and shows all matching letters  
+/* Called by the main game handler, this function checks if a clicked letter is part of the song and shows all matching letters.
+This means there is no need for a separate method to check for a match.
+*/
    showMatchedLetter(clickedLetter){
      const letters = document.querySelectorAll("#song li");
      let hit = null;

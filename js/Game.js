@@ -11,6 +11,7 @@ class Game {
      "Kings of Metal"
       ];
       this.activeSong = null;
+      // I didn't see a point to include a "missed" variable and used another method to check if the player loses instead
    }
 
    getRandomSong() {
@@ -57,8 +58,8 @@ and calls methods for checking the winning/losing conditions.
        return true;
      }
   }
-/* simply changes the image source from a pic of a "full" heart to one of an "empty" heart.
-Also returns 0 if no "full" hearts are found (see handleInteraction above)
+/* Simply changes the image source from a pic of a "full" heart to one of an "empty" heart.
+Also returns 0 if no "full" hearts are found which is needed for checking if the player loses (see handleInteraction above)
 */
   removeLife(){
     document.querySelector('img[src="images/liveHeart.png"]').setAttribute("src", "images/lostHeart.png");
