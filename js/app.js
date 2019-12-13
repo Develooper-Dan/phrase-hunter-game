@@ -12,3 +12,11 @@ keyboard.addEventListener("click", (e) =>{
   if (e.target.className==="key")
   game.handleInteraction(e.target);
 })
+
+document.addEventListener("keyup", (e) =>{
+  if (/[a-z]/.test(e.key)){
+    const allKeysArray = Array.from(document.querySelectorAll(".key"));
+    const correspondingKey = allKeysArray.find(key => key.textContent === e.key);
+    game.handleInteraction(correspondingKey);
+  }
+})
