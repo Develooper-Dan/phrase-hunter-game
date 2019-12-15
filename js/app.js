@@ -1,4 +1,6 @@
-//Initializing a new Game instance and putting event listeners on the start and keyboard buttons to call game methods on click
+/*Initializing a new Game instance and putting event listeners on the start and keyboard buttons to call game methods on .
+Also allows the player to use his keyboard for input.
+*/
 const startButton = document.getElementById("btn__reset");
 const keyboard = document.getElementById("qwerty");
 let game = new Game();

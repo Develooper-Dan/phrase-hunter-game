@@ -18,9 +18,30 @@
 
 /* main */
 
+@font-face {
+  font-family: "vtks_rude_metal_shadowregular";
+  src: url('vtks_rude_metal_shadow-webfont.woff2') format('woff2'),
+       url('vtks_rude_metal_shadow-webfont.woff') format('woff'),
+       url('vtks_rude_metal_shadow-webfont.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: "death_devilregular";
+  src: url('death_devil-webfont.woff2') format('woff2'),
+       url('death_devil-webfont.woff') format('woff'),
+       url('death_devil-webfont.tff') format('ttf');
+}
+
+@font-face {
+  font-family: "lj_power_metal_personal_useRg";
+  src: url('ljpowermetal-webfont.woff2') format('woff2'),
+       url('ljpowermetal-webfont.woff') format('woff'),
+       url('ljpowermetal-webfont.ttf') format('ttf');
+}
+
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "vtks_rude_metal_shadowregular", 'Montserrat', sans-serif;
 }
 
 body {
@@ -40,6 +61,7 @@ h2 {
   text-transform: uppercase;
   font-size: var(--font-size-large);
   margin: 0;
+  font-family: "death_devilregular", 'Montserrat', sans-serif;
 }
 
 h1 {
