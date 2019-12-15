@@ -34,6 +34,7 @@ Also creates a new Phrase class with a random phrase from the array.
      document.getElementById("overlay").style.display = "none";
      this.activePhrase = new Phrase(this.getRandomPhrase());
      this.activePhrase.addPhraseToDisplay();
+     this.missed = 0;
    }
 /* The core of the game. Changes the appearance of pressed keys based on whether they appear in the active phrase
 and calls methods for checking the winning/losing conditions.
@@ -41,10 +42,10 @@ and calls methods for checking the winning/losing conditions.
    handleInteraction(clickedLetter) {
      if (this.activePhrase.checkLetter(clickedLetter.textContent)){
        clickedLetter.className = "key chosen";
-       this.activePhrase.showMatchedLetter(clickedLetter.textContent)
+       this.activePhrase.showMatchedLetter(clickedLetter.textContent);
        if (this.checkForWin()){
         this.gameOver("win");
-       };
+       }
      } else {
         clickedLetter.className = "key wrong";
         this.removeLife();

@@ -8,17 +8,19 @@ let game = new Game();
 startButton.addEventListener("click", () =>{
   game;
   game.startGame();
-})
+});
 
 keyboard.addEventListener("click", (e) =>{
-  if (e.target.className==="key")
-  game.handleInteraction(e.target);
-})
+  if (e.target.className==="key"){
+    game.handleInteraction(e.target);
+    e.target.blur();
+  }
+});
 
 document.addEventListener("keyup", (e) =>{
-  if (/[a-z]/.test(e.key)){
     const allKeysArray = Array.from(document.querySelectorAll(".key"));
     const correspondingKey = allKeysArray.find(key => key.textContent === e.key);
-    game.handleInteraction(correspondingKey);
+    if (/[a-z]/.test(e.key) && !correspondingKey.disabled){
+      game.handleInteraction(correspondingKey);
   }
-})
+});
