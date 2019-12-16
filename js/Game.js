@@ -18,7 +18,7 @@ class Game {
      const phraseIndex = Math.floor(Math.random()*this.phrases.length);
      return this.phrases[phraseIndex];
    }
-/*Resets previous games by re-enabling all keys and setting the appearance of keys and hearts to default.
+/*Resets previous games by re-enabling all keys and setting the appearance of keys and "hearts" to default.
 Also creates a new Phrase class with a random phrase from the array.
 */
    startGame(){
@@ -27,6 +27,7 @@ Also creates a new Phrase class with a random phrase from the array.
      for (let i=0; i<keys.length; i++){
        keys[i].disabled = false;
        keys[i].className = "key";
+       keys[i].style.display= "";
      }
      for (let j=0; j<lostHearts.length; j++){
        lostHearts[j].setAttribute("src", "images/liveHeart.png");
@@ -68,8 +69,13 @@ Also increments the "missed" variable which is used for checking if the player l
     document.querySelector('img[src="images/liveHeart.png"]').setAttribute("src", "images/lostHeart.png");
     this.missed++;
   }
-//displays either the winning or losing message
+//displays either the winning or losing message. Also hides all keys so they don't appear on the game over screen.
   gameOver(winOrLose){
+    const keys = document.getElementsByClassName("key");
+    for (let i=0; i<keys.length; i++){
+      keys[i].style.display= "none";
+      keys[i].className = "key";
+    }
     document.getElementById("overlay").style.display = "";
     if (winOrLose === "win"){
       document.getElementById("overlay").className = "start win";

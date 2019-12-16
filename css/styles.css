@@ -190,6 +190,12 @@ button {
   opacity: 0.6;
 }
 
+.wrong:hover, .chosen:hover {
+  -webkit-filter: brightness();
+  -o-filter: brightness();
+  filter: brightness();
+}
+
 .btn__reset {
   padding: 16px;
   margin: 50px auto;
