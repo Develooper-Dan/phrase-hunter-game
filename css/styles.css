@@ -19,19 +19,18 @@
 /* main */
 
 @font-face {
-  font-family: "vtks_rude_metal_shadowregular";
-  src: url('vtks_rude_metal_shadow-webfont.woff2') format('woff2'),
-       url('vtks_rude_metal_shadow-webfont.woff') format('woff'),
-       url('vtks_rude_metal_shadow-webfont.ttf') format('ttf');
+  font-family: "death_devilregular";
+  src: url('../fonts/death_devil-webfont.woff2') format('woff2'),
+       url('../fonts/death_devil-webfont.woff') format('woff'),
+       url('../fonts/death_devil-webfont.tff') format('ttf');
 }
 
 @font-face {
-  font-family: "death_devilregular";
-  src: url('death_devil-webfont.woff2') format('woff2'),
-       url('death_devil-webfont.woff') format('woff'),
-       url('death_devil-webfont.tff') format('ttf');
+  font-family: "thedark-regular";
+  src: url('../fonts/thedark-pr2z-webfont.woff2') format('woff2'),
+       url('../fonts/thedark-pr2z-webfont.woff') format('woff'),
+       url('../fonts/thedark-pr2z-webfont.tff') format('ttf');
 }
-
 
 @keyframes fadeIn {
   0% {
@@ -53,7 +52,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "vtks_rude_metal_shadowregular", 'Montserrat', sans-serif;
+  font-family: "thedark-regular", 'Montserrat', sans-serif;
 }
 
 body {
@@ -94,6 +93,11 @@ button {
   cursor: pointer;
 }
 
+.key:hover {
+  -webkit-filter: brightness(1.4);
+  -o-filter: brightness(1.4);
+  filter: brightness(1.4);
+}
 #btn__reset {
 	width: 200px;
 	margin: 0 auto;
@@ -119,11 +123,6 @@ button {
   padding: 10px;
 }
 
-/* #scoreboard {
-  margin-top: auto;
-  height: 10%;
-  background-image: linear-gradient(#b42710, #50302b);
-} */
 
 #phrase ul li{
   margin-top: 15px;
@@ -179,7 +178,7 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #24b1a1;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
@@ -188,6 +187,7 @@ button {
 .wrong {
   background: #f7a964;
   color: #FFFFFF;
+  opacity: 0.6;
 }
 
 .btn__reset {
@@ -226,6 +226,7 @@ button {
 .title {
   color: #FFF;
   text-shadow: 2px 1px 2px #000;
+  -webkit-animation: fadeIn 5s 1;
   animation: fadeIn 5s 1;
 }
 
@@ -237,11 +238,9 @@ button {
   color: #fff;
 }
 
-#game-over-message{
-  letter-spacing: 0.0625em
-}
 .win {
   background-color: var(--color-win);
+  -webkit-animation: blurIn 3s 1;
   animation: blurIn 3s 1;
 }
 
@@ -251,6 +250,7 @@ button {
 
 .lose {
   background-color: var(--color-lose);
+  -webkit-animation: blurIn 3s 1;
   animation: blurIn 3s 1;
 }
 
