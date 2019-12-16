@@ -73,7 +73,7 @@ Also increments the "missed" variable which is used for checking if the player l
     document.getElementById("overlay").style.display = "";
     if (winOrLose === "win"){
       document.getElementById("overlay").className = "start win";
-      document.getElementById("game-over-message").textContent = "You rock! \\\\m//";
+      document.getElementById("game-over-message").textContent = "You rock!";
     } else {
       document.getElementById("overlay").className = "start lose";
       document.getElementById("game-over-message").textContent = "Do, or do not. There is no try.";
