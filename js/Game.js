@@ -1,25 +1,25 @@
-/*The Game class holds the array of phrases from which a random phrase is chosen and put onto display (also see Phrase class).
+/*The Game class holds the array of songs from which a random song is chosen and put onto display (also see Song class).
 In addition, it holds the methods for the main game mechanics and resets the game elements if a new game is started.
 */
 class Game {
    constructor(){
-     this.phrases = [
+     this.songs = [
      "Breaking the law",
      "Fear of the dark",
      "Grim and frostbitten kingdoms",
      "Come to the Sabbath",
      "Kings of Metal"
       ];
-      this.activePhrase = null;
+      this.activeSong = null;
       this.missed = 0;
    }
 
-   getRandomPhrase() {
-     const phraseIndex = Math.floor(Math.random()*this.phrases.length);
-     return this.phrases[phraseIndex];
+   getRandomSong() {
+     const songIndex = Math.floor(Math.random()*this.songs.length);
+     return this.songs[songIndex];
    }
 /*Resets previous games by re-enabling all keys and setting the appearance of keys and "hearts" to default.
-Also creates a new Phrase class with a random phrase from the array.
+Also creates a new Song class with a random song from the array.
 */
    startGame(){
      const keys = document.getElementsByClassName("key");
@@ -33,30 +33,28 @@ Also creates a new Phrase class with a random phrase from the array.
        lostHearts[j].setAttribute("src", "images/liveHeart.png");
      }
      document.getElementById("overlay").style.display = "none";
-     this.activePhrase = new Phrase(this.getRandomPhrase());
-     this.activePhrase.addPhraseToDisplay();
-     this.missed = 0;
+     this.activeSong = new Song(this.getRandomSong());
+     this.activeSong.addSongToDisplay();
    }
-/* The core of the game. Changes the appearance of pressed keys based on whether they appear in the active phrase
+/* The core of the game. Changes the appearance of pressed keys based on whether they appear in the active song
 and calls methods for checking the winning/losing conditions.
 */
    handleInteraction(clickedLetter) {
-     if (this.activePhrase.checkLetter(clickedLetter.textContent)){
+     if (this.activeSong.showMatchedLetter(clickedLetter.textContent)){
        clickedLetter.className = "key chosen";
-       this.activePhrase.showMatchedLetter(clickedLetter.textContent);
        if (this.checkForWin()){
         this.gameOver("win");
        }
      } else {
         clickedLetter.className = "key wrong";
         this.removeLife();
-        if (this.missed === document.querySelectorAll(".tries").length){
+        if (this.removeLife() === 0){
           this.gameOver("lose");
         }
       }
      clickedLetter.disabled = true;
    }
-// If there are no hidden letters in the HTML phrase section then...
+// If there are no hidden letters in the HTML song section then...
    checkForWin(){
      if (document.querySelectorAll(".hide").length === 0){
        return true;
@@ -67,7 +65,9 @@ Also increments the "missed" variable which is used for checking if the player l
 */
   removeLife(){
     document.querySelector('img[src="images/liveHeart.png"]').setAttribute("src", "images/lostHeart.png");
-    this.missed++;
+    if (document.querySelectorAll('img[src="images/liveHeart.png"]').length ===0){
+      return 0;
+    }
   }
 //displays either the winning or losing message. Also hides all keys so they don't appear on the game over screen.
   gameOver(winOrLose){
@@ -79,10 +79,10 @@ Also increments the "missed" variable which is used for checking if the player l
     document.getElementById("overlay").style.display = "";
     if (winOrLose === "win"){
       document.getElementById("overlay").className = "start win";
-      document.getElementById("game-over-message").textContent = "You rock!";
+      document.getElementById("game-over-message").textContent = "Fuckin' Slayer!";
     } else {
       document.getElementById("overlay").className = "start lose";
-      document.getElementById("game-over-message").textContent = "Do, or do not. There is no try.";
+      document.getElementById("game-over-message").textContent = "Go die, please!";
     }
   }
 }

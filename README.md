@@ -30,5 +30,3 @@ In terms of styling, I tried to come up with something that would be more fittin
 - The background of the game screen was changed to a reddish gradient style. I also made minor changes to the bg color of chosen keys and letters to be a bit mor fitting to the new background
 
 - To make the site more vivid, I included some animations: a fade-in for the tile and start button and a blur-in for the game over screen. Furthermore, I added two hovering effects: one on the start button which scales up and one on the keys which get a kind of glow effect
-
-*This is the censored, politically correct version of the app for reviewing purposes*
