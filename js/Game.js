@@ -47,7 +47,6 @@ and calls methods for checking the winning/losing conditions.
        }
      } else {
         clickedLetter.className = "key wrong";
-        this.removeLife();
         if (this.removeLife() === 0){
           this.gameOver("lose");
         }
@@ -60,8 +59,8 @@ and calls methods for checking the winning/losing conditions.
        return true;
      }
   }
-/* Simply changes the image source from a pic of a "full" heart to one of an "empty" heart.
-Also increments the "missed" variable which is used for checking if the player loses the game.
+/* Simply changes the image source from a pic of a full mug to one of an empty mug.
+Also returns 0 if there are no full mugs left which means the player loses the game
 */
   removeLife(){
     document.querySelector('img[src="images/liveHeart.png"]').setAttribute("src", "images/lostHeart.png");
