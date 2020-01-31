@@ -178,7 +178,7 @@ button {
 }
 
 .chosen {
-  background: #24b1a1;
+  background: #19af9e;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
@@ -186,7 +186,6 @@ button {
 
 .wrong {
   background: #f7a964;
-  color: #FFFFFF;
   opacity: 0.6;
 }
 
