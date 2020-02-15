@@ -8,6 +8,7 @@ let game = new Game();
 startButton.addEventListener("click", () =>{
   game;
   game.startGame();
+  startButton.style.display = "none";
 });
 
 keyboard.addEventListener("click", (e) =>{

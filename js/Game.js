@@ -11,7 +11,10 @@ class Game {
      "Kings of Metal"
       ];
       this.activeSong = null;
-      this.missed = 0;
+      this.keys = document.getElementsByClassName("key");
+      this.keyboard = document.getElementById("qwerty");
+      this.scoreboard = document.getElementById("scoreboard");
+      this.message = document.getElementById("game-over-message");
    }
 
    getRandomSong() {
@@ -22,17 +25,19 @@ class Game {
 Also creates a new Song class with a random song from the array.
 */
    startGame(){
-     const keys = document.getElementsByClassName("key");
      const lostHearts = document.querySelectorAll('img[src="images/lostHeart.png"]');
-     for (let i=0; i<keys.length; i++){
-       keys[i].disabled = false;
-       keys[i].className = "key";
-       keys[i].style.display= "";
+     for (let i=0; i<this.keys.length; i++){
+       this.keys[i].disabled = false;
+       this.keys[i].className = "key";
+       this.keys[i].style.display= "";
      }
+     this.keyboard.style.display= "";
+     this.scoreboard.style.opacity= "1";
+     this.message.style.display ="none";
      for (let j=0; j<lostHearts.length; j++){
        lostHearts[j].setAttribute("src", "images/liveHeart.png");
      }
-     document.getElementById("overlay").style.display = "none";
+     document.getElementById("main-container").className = "start";
      this.activeSong = new Song(this.getRandomSong());
      this.activeSong.addSongToDisplay();
    }
@@ -70,18 +75,16 @@ Also returns 0 if there are no full mugs left which means the player loses the g
   }
 //displays either the winning or losing message. Also hides all keys so they don't appear on the game over screen.
   gameOver(winOrLose){
-    const keys = document.getElementsByClassName("key");
-    for (let i=0; i<keys.length; i++){
-      keys[i].style.display= "none";
-      keys[i].className = "key";
-    }
-    document.getElementById("overlay").style.display = "";
+    const startButton = document.getElementById("btn__reset");
+    this.keyboard.style.display= "none";
+    startButton.style.display="";
+    this.message.style.display ="";
     if (winOrLose === "win"){
-      document.getElementById("overlay").className = "start win";
-      document.getElementById("game-over-message").textContent = "Fuckin' Slayer!";
+      document.getElementById("main-container").className = "win";
+      this.message.textContent = "Fuckin' Slayer!";
     } else {
-      document.getElementById("overlay").className = "start lose";
-      document.getElementById("game-over-message").textContent = "Go die, please!";
+      document.getElementById("main-container").className = "lose";
+      this.message.textContent = "Go die, please!";
     }
   }
 }
