@@ -25,8 +25,8 @@ In terms of styling, I tried to come up with something that would be more fittin
 
 - I chose 2 custom fonts I found on the web to replace the given font. One for the title, one for the rest. Unfortunately, the fonts don't have any special characters in them so dots and commas etc. are not displayed. Maybe I'll try to add them later on or just change the game over messages
 
-- The heart-images which were already provided by Treehouse were replaced with beer mugs
+- The heart-images which were originally provided by Treehouse were replaced with beer mugs
 
-- The background of the game screen was changed to a reddish gradient style. I also made minor changes to the bg color of chosen keys and letters to be a bit mor fitting to the new background
+- The background of the win/lose-screens were changed to a greenish/reddish gradient style. I also made minor changes to the bg color of chosen keys and letters to be a bit more fitting to the new background
 
-- To make the site more vivid, I included some animations: a fade-in for the tile and start button and a blur-in for the game over screen. Furthermore, I added two hovering effects: one on the start button which scales up and one on the keys which get a kind of glow effect
+- To make the site more vivid, I included some animations: a fade-in for the title and start button and a blur-in for the game over screens. Furthermore, I added two hovering effects: one on the start button which scales up and one on the keys which get a kind of glow effect
