@@ -4,9 +4,6 @@
 /* Variables */
 
 :root {
-  --color-win: #6aa472;
-  --color-lose: #1a1d1a;
-  --color-start: #5b85b7;
   --color-neutral: #445069;
   --color-neutral-light: #D2D2D2;
   --color-keys: #37474F;
@@ -55,13 +52,6 @@
   font-family: "thedark-regular", 'Montserrat', sans-serif;
 }
 
-body {
-  justify-content: space-evenly;
-  flex-direction: column;
-  display: flex;
-  height: 100vh;
-}
-
 li, ol, ul {
   padding: 0;
   display: inline-block;
@@ -71,12 +61,12 @@ h2 {
   margin: 0;
   text-transform: uppercase;
   font-size: var(--font-size-large);
-  margin: 0;
   font-family: "death_devilregular", 'Montserrat', sans-serif;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 40px;
+  color: #FFF;
 }
 
 button {
@@ -108,46 +98,61 @@ button {
 	transform: scale(1.2);
 }
 
-.main-container {
+#main-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  max-height: 900px;
+  justify-content: space-between;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
   text-align: center;
-  background-image: linear-gradient(#50302b, #b42710);
 }
 
 .section {
   width: 100%;
-  padding: 10px;
+  padding: 20px;
 }
 
+#scoreboard {
+  width: 100%;
+  padding: 10px;
+  margin-top: auto;
+  position: relative;
+  bottom: 3rem;
+  transition:  opacity 1s;
+}
 
 #song ul li{
-  margin-top: 15px;
+  margin-top: 1em;
+  -webkit-animation: fadeIn 1s 1;
+  animation: fadeIn 1s 1;
 }
 
 /* Title */
-
 .header {
   color: #FFF;
   text-shadow: 2px 1px 2px #000;
+  position: relative;
+  top: 4rem;
+  animation: fadeIn 4s 1 ease-in-out;
 }
 
 
 /* Phrase */
 
 .letter {
-  font-size: var(--font-size-medium);
+  font-size: 30px;
   height: 65px;
   width: 65px;
-  padding: 20px 1px 0 1px;
+  padding: 10px 1px 10px 1px;
   margin-right: 2px;
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
-  border: 2px solid #87878d;
+  border: 3px solid #87878d;
 }
 
 .space {
@@ -159,14 +164,14 @@ button {
 .show {
   color: #fff;
   background-color: #30555b;
-  font-size: var(--font-size-medium);
+  font-size: 30px;
   height: 65px;
   width: 65px;
-  padding: 20px 1px 0 1px;
+  padding: 10px 1px 10px 1px;
   margin-right: 2px;
   border-radius: 5px;
-  -webkit-animation-duration: .5s;
-  animation-duration: .5s;
+  -webkit-transition: .5s;
+  transition: : .5s;
 }
 
 
@@ -212,53 +217,29 @@ button {
   border-right: solid 3px rgba(0, 0, 0, 0);
 }
 
-
-/* Overlay */
-
-#overlay {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  color: #FFFFFF;
-  justify-content: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 5px;
-}
-
-.title {
-  color: #FFF;
-  text-shadow: 2px 1px 2px #000;
-  -webkit-animation: fadeIn 5s 1;
-  animation: fadeIn 5s 1;
-}
-
 .start {
   background-color: #3a3f58;
 }
 
-.start a {
-  color: #fff;
-}
-
 .win {
-  background-color: var(--color-win);
+  background-image: linear-gradient(
+    to bottom right,
+    #213624,
+    #3e6543 40%,
+    #6aa472 80%
+    );
   -webkit-animation: blurIn 3s 1;
   animation: blurIn 3s 1;
 }
 
-.win a {
-  color: var(--color-win);
-}
 
 .lose {
-  background-color: var(--color-lose);
+  background-image: linear-gradient(
+    to bottom right,
+    #490303,
+    #8d0a0a 60%,
+    #f40b0b 80%
+    );
   -webkit-animation: blurIn 3s 1;
   animation: blurIn 3s 1;
-}
-
-.lose a {
-  color: var(--color-lose);
 }
