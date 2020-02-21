@@ -67,6 +67,7 @@ h2 {
 h1 {
   font-size: 40px;
   color: #FFF;
+  text-shadow: 2px 1px 2px #000;
 }
 
 button {
@@ -136,7 +137,7 @@ button {
   color: #FFF;
   text-shadow: 2px 1px 2px #000;
   position: relative;
-  top: 4rem;
+  top: 2rem;
   animation: fadeIn 4s 1 ease-in-out;
 }
 
@@ -176,6 +177,9 @@ button {
 
 
 /* Keyboard */
+#qwerty {
+  margin-bottom: 1em;
+}
 
 .keyrow {
   display: flex;
@@ -242,4 +246,23 @@ button {
     );
   -webkit-animation: blurIn 3s 1;
   animation: blurIn 3s 1;
+}
+
+@media (max-height: 700px), (max-width: 500px){
+  #keyrow {
+    justify-content: space-around;
+  }
+  .header {
+    font-size: 50px;
+    top: 2rem
+  }
+button {
+  padding: 0 0.2em
+}
+  .section {
+    padding: 10px;
+  }
+  h1 {
+    margin-top: 0;
+  }
 }
