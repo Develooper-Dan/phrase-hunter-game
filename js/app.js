@@ -9,6 +9,7 @@ startButton.addEventListener("click", () =>{
   game;
   game.startGame();
   startButton.style.display = "none";
+  keyboard.style.display = "";
 });
 
 keyboard.addEventListener("click", (e) =>{
