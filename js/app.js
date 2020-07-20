@@ -10,6 +10,7 @@ startButton.addEventListener("click", () =>{
   game.startGame();
   startButton.style.display = "none";
   keyboard.style.display = "";
+  document.getElementById("main-container").className = "start";
 });
 
 keyboard.addEventListener("click", (e) =>{
