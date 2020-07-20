@@ -6,11 +6,12 @@ const keyboard = document.getElementById("qwerty");
 let game = new Game();
 
 startButton.addEventListener("click", () =>{
+  document.getElementById("main-container").className = "start";
   game;
   game.startGame();
   startButton.style.display = "none";
   keyboard.style.display = "";
-  document.getElementById("main-container").className = "start";
+
 });
 
 keyboard.addEventListener("click", (e) =>{
